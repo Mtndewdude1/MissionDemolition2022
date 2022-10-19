@@ -13,19 +13,21 @@ public class CloudCover : MonoBehaviour
     public Vector2 scaleRange = new Vector2(1, 4);
 
 
+
+
     // Start is called before the first frame update
     void Start()
     {
         Transform parentTrans = this.transform;
-        GameObject cloudGo;
+        GameObject cloudGO;
         Transform cloudTrans;
         SpriteRenderer sRend;
         float scaleMult;
-        for(int i = 0; i <numClouds; i++)
+        for ( int i = 0; i < numClouds; i++)
         {
-            cloudGo = new GameObject();
-            cloudTrans = cloudGo.transform;
-            sRend = cloudGo.AddComponent<SpriteRenderer>();
+            cloudGO = new GameObject();
+            cloudTrans = cloudGO.transform;
+            sRend = cloudGO.AddComponent<SpriteRenderer>();
 
             int spriteNum = Random.Range(0, cloudSprites.Length);
             sRend.sprite = cloudSprites[spriteNum];
@@ -36,6 +38,7 @@ public class CloudCover : MonoBehaviour
             scaleMult = Random.Range(scaleRange.x, scaleRange.y);
             cloudTrans.localScale = Vector3.one * scaleMult;
         }
+        
     }
     Vector3 RandomPos()
     {
@@ -44,8 +47,8 @@ public class CloudCover : MonoBehaviour
         pos.y = Random.Range(minPos.y, maxPos.y);
         pos.z = Random.Range(minPos.z, maxPos.z);
         return pos;
-    }
 
+    }
     // Update is called once per frame
     void Update()
     {
